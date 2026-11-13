@@ -29,14 +29,14 @@ A Django-based blogging platform where users can create, manage, search, and exp
 ## Screenshots
 
 ### Homepage
-![Homepage](screenshots/Screenshot (191).png)
+![Homepage](screenshots/Screenshot(191).png)
 
 ### Blog Detail
-![Blog Detail](screenshots/Screenshot (196).png)
+![Blog Detail](screenshots/Screenshot(196).png)
 
 
 ### Login
-![Login](screenshots/Screenshot (198).png)
+![Login](screenshots/Screenshot(198).png)
 
 <!-- Add screenshots in this section after creating the screenshots folder. -->
 
