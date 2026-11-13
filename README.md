@@ -34,7 +34,6 @@ A Django-based blogging platform where users can create, manage, search, and exp
 ### Blog Detail
 ![Blog Detail](screenshots/Screenshot(196).png)
 
-
 ### Login
 ![Login](screenshots/Screenshot(198).png)
 
@@ -67,7 +66,7 @@ pip install -r requirements.txt
 Create a `.env` file in the project root and add your own values:
 
 ```env
-SECRET_KEY=your-secret-key
+SECRET_KEY=the-secret-key
 DEBUG=True
 ALLOWED_HOSTS=127.0.0.1,localhost
 CSRF_TRUSTED_ORIGINS=
