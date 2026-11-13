@@ -1,0 +1,38 @@
+
+{% extends 'blogweb/base.html' %}
+
+{% block title %}Create a Blog{% endblock %}
+
+{% block content %}
+
+<div class="form-container">
+
+    <div class="form-card">
+
+        <h1>Create a New Blog Post</h1>
+
+        <p class="form-subtitle">
+            Share your ideas and stories with the world.
+        </p>
+
+        <form method="POST" class="blog-form">
+
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button type="submit" class="save-button">
+                Publish Post
+            </button>
+
+        </form>
+
+        <a href="{% url 'home' %}" class="cancel-button">
+            ← Back to Home
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

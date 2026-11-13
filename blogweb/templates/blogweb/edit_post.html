@@ -1,0 +1,38 @@
+
+{% extends 'blogweb/base.html' %}
+
+{% block title %}Edit Blog{% endblock %}
+
+{% block content %}
+
+<div class="form-container">
+
+    <div class="form-card">
+
+        <h1>Edit Your Blog</h1>
+
+        <p class="form-subtitle">
+            Make changes to: <strong>{{ post.title }}</strong>
+        </p>
+
+        <form method="POST" class="blog-form">
+
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button type="submit" class="save-button">
+                Save Changes
+            </button>
+
+        </form>
+
+        <a href="{% url 'post_detail' post.pk %}" class="cancel-button">
+            Cancel
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

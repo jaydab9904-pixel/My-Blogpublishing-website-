@@ -1,0 +1,83 @@
+
+{% extends 'blogweb/base.html' %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+
+<div class="detail-container">
+
+    <article class="detail-card">
+
+        <!-- Article heading -->
+        <header class="article-header">
+
+            <h1>{{ post.title }}</h1>
+
+            <div class="article-meta">
+                <span>By {{ post.author }}</span>
+                <span>Published: {{ post.created_at|date:"F j, Y" }}</span>
+            </div>
+
+        </header>
+
+
+        <!-- Article content -->
+        <div class="article-content">
+            {{ post.content|linebreaks }}
+        </div>
+
+
+        <!-- Category -->
+        {% if post.category %}
+            <div class="article-category">
+                <strong>Category:</strong>
+                <span>{{ post.category.name }}</span>
+            </div>
+        {% endif %}
+
+
+        <!-- Tags -->
+        <div class="article-tags">
+
+            <strong>Tags:</strong>
+
+            {% for tag in post.tags.all %}
+                <span class="tag">{{ tag.name }}</span>
+            {% empty %}
+                <span>No tags</span>
+            {% endfor %}
+
+        </div>
+
+
+        <!-- Author actions -->
+        {% if user.is_authenticated and post.owner == user %}
+
+            <div class="article-actions">
+
+                <h3>Manage Your Article</h3>
+
+                <a href="{% url 'edit_post' post.pk %}" class="edit-button">
+                    Edit Content
+                </a>
+
+                <a href="{% url 'delete_post' post.pk %}" class="delete-button">
+                    Delete Blog
+                </a>
+
+            </div>
+
+        {% endif %}
+
+
+        <!-- Back to homepage -->
+        <div class="back-home">
+            <a href="{% url 'home' %}">← Back to Home</a>
+        </div>
+
+    </article>
+
+</div>
+
+{% endblock %}

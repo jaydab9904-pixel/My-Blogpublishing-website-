@@ -1,0 +1,94 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}My Blog publisher{% endblock %}</title>
+
+    <link rel="stylesheet" href="{% static 'blogweb/style.css' %}">
+</head>
+
+<body>
+
+    <header class="site-header">
+
+        <div class="container navbar">
+
+            <a href="{% url 'home' %}" class="logo">
+                My Blog Publisher
+            </a>
+
+            <nav>
+
+                <a href="{% url 'home' %}">Home</a>
+
+                {% if user.is_authenticated %}
+
+                
+
+                    <div class="user-menu">
+
+    <span class="welcome">
+        Hello, {{ user.username }} ▾
+    </span>
+
+    <div class="dropdown-menu">
+
+        <a href="{% url 'create_post' %}">
+            Create a New Blog
+        </a>
+
+        <a href="{% url 'delete_my_posts' %}" class="delete-option">
+            Delete All My Posts
+        </a>
+
+        
+
+    </div>
+
+                    <form method="POST" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <button type="submit" class="nav-button">
+                            Logout
+                        </button>
+                    </form>
+
+                {% else %}
+
+                    <a href="{% url 'login' %}">Login</a>
+                    <a href="{% url 'register' %}" class="register-link">
+                        Register
+                    </a>
+
+                {% endif %}
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <main class="container main-content">
+
+        {% block content %}
+        {% endblock %}
+
+    </main>
+
+
+    <footer class="site-footer">
+
+        <div class="container">
+            <p>Done by Django 6.1.3 &copy; 2026</p>
+        </div>
+
+    </footer>
+
+</body>
+</html>

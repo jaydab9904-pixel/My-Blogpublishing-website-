@@ -1,0 +1,41 @@
+
+{% extends 'blogweb/base.html' %}
+
+{% block title %}Delete My Posts{% endblock %}
+
+{% block content %}
+
+<div class="delete-container">
+
+    <div class="delete-card">
+
+        
+
+        <h1>Delete All My Posts?</h1>
+
+        <p class="delete-message">
+            Are you sure you want to delete all your blogs?
+        </p>
+
+        <p class="delete-warning">
+            Warning: This action cannot be undone.
+            All your posts will be permanently deleted.
+        </p>
+
+        <form method="POST" class="delete-form">
+            {% csrf_token %}
+
+            <button type="submit" class="delete-button">
+                Yes, Delete All My Posts
+            </button>
+        </form>
+
+        <a href="{% url 'home' %}" class="cancel-link">
+            Cancel and Go Back
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

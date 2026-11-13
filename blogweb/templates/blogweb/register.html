@@ -1,0 +1,39 @@
+
+{% extends 'blogweb/base.html' %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+
+<div class="auth-container">
+
+    <div class="auth-card">
+
+        <h1>Create an Account</h1>
+
+        <p class="auth-subtitle">
+            Join our community and start sharing your stories.
+        </p>
+
+        <form method="POST" class="auth-form">
+
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button type="submit" class="auth-button">
+                Register
+            </button>
+
+        </form>
+
+        <p class="auth-footer">
+            Already have an account?
+            <a href="{% url 'login' %}">Log in</a>
+        </p>
+
+    </div>
+
+</div>
+
+{% endblock %}
